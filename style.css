@@ -442,6 +442,15 @@ section {
 
 
 /* ----- FORMULARIO DE CONTACTO ----- */
+#contacto {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--sombra);
+  padding: 40px;
+  margin: 20px auto 60px;
+}
+
+
 .formulario-contacto {
   display: flex;
   flex-direction: column;

@@ -7,6 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TMKHRM04K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9TMKHRM04K');
+  </script>
 </head>
 <body>
 
@@ -19,7 +28,8 @@
       <p>📧 juanpaillaguala@gmail.com | 🔗 <a href="https://www.linkedin.com/in/juan-paillaguala-villarroel" target="_blank">LinkedIn</a></p>
           <!-- descarga de CV -->
       <div class="cv-download-container">
-        <a href="Curriculum Vitae Juan Paillaguala.pdf" download class="cv-download-button">
+        <a href="Curriculum Vitae Juan Paillaguala.pdf" download class="cv-download-button" 
+          data-tracking="true" data-event-category="CV" data-event-action="download" data-event-label="Curriculum Vitae">
           <span class="download-icon">📄</span>
           Descargar CV
         </a>
@@ -448,5 +458,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     </script>
   </main>
+  <script>
+    document.addEventListener('click', function(event) {
+      var element = event.target;
+      
+      // Navegar hacia arriba para encontrar el enlace si se hizo clic en un hijo
+      while (element && element.tagName !== 'A') {
+        element = element.parentElement;
+      }
+      
+      // Verificar si el elemento es un enlace de seguimiento
+      if (element && element.getAttribute('data-tracking') === 'true') {
+        var category = element.getAttribute('data-event-category');
+        var action = element.getAttribute('data-event-action');
+        var label = element.getAttribute('data-event-label');
+        
+        // Enviar evento a GA4
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+        
+        console.log('Evento rastreado:', category, action, label);
+      }
+    });
+    </script>
 </body>
 </html>
