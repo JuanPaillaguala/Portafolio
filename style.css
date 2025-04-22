@@ -429,6 +429,17 @@ section {
   font-weight: 500;
 }
 
+/* Estilo para etiqueta de Looker Studio */
+.etiqueta-looker {
+  display: inline-block;
+  background: #4285F4;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .portafolio-grid {
