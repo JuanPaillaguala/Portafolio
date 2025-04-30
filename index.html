@@ -19,14 +19,14 @@
 </head>
 <body>
 
-  <header>
+  <header  id="Inicio">
     <div class="header-content">
       <img src="Foto.jpg" alt="Foto" class="perfil">
       <h1>Juan Paillaguala Villarroel</h1>
       <p>Ingeniero en Información y Control de Gestión | Analista de Datos</p>
       <p>📍 Puerto Montt, Chile</p>
       <p>📧 juanpaillaguala@gmail.com | 🔗 <a href="https://www.linkedin.com/in/juan-paillaguala-villarroel" target="_blank">LinkedIn</a></p>
-          <!-- descarga de CV -->
+      <!-- descarga de CV -->
       <div class="cv-download-container">
         <a href="Curriculum Vitae Juan Paillaguala.pdf" download class="cv-download-button" 
           data-tracking="true" data-event-category="CV" data-event-action="download" data-event-label="Curriculum Vitae">
@@ -34,16 +34,22 @@
           Descargar CV
         </a>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#estudios">Estudios</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
-          <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
+
+  <!-- Menú -->
+  <nav id="sticky-nav">
+    <div class="nav-container">
+      <div class="nav-name">Juan Paillaguala</div>
+      <ul>
+        <li><a href="#Inicio">Inicio</a></li>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main>
     <!-- SECCIÓN ESTUDIOS -->
@@ -195,7 +201,7 @@
       
       <div class="portafolio-grid">
         <!-- Proyectos de PowerBI -->
-        <!-- P & L Income -->
+        <!-- P & L Income 
         <div class="dashboard-card">
           <div class="dashboard-embed">
             <iframe 
@@ -213,8 +219,8 @@
             <span class="etiqueta-powerbi">Power BI</span>
           </div>
         </div>
-    
-        <!-- Crianza terneros -->
+        -->
+        <!-- Crianza terneros
         <div class="dashboard-card">
           <div class="dashboard-embed">
             <iframe 
@@ -232,8 +238,8 @@
             <span class="etiqueta-powerbi">Power BI</span>
           </div>
         </div>
-    
-        <!-- Biología molecular acuicola -->
+        -->
+        <!-- Biología molecular acuicola
         <div class="dashboard-card">
           <div class="dashboard-embed">
             <iframe 
@@ -251,6 +257,7 @@
             <span class="etiqueta-powerbi">Power BI</span>
           </div>
         </div>
+        -->
         <!-- Proyectos de Looker Studio -->
         <!-- Estadísticas Google Analytics Portafolio -->
         <div class="dashboard-card">
@@ -289,15 +296,14 @@
             <span class="etiqueta-looker">Looker Studio</span>
           </div>
         </div>
-
-        <!-- Monitoreo Operacional -->
+        <!-- Monitoreo Operacional
         <div class="dashboard-card">
           <div class="dashboard-embed">
             <iframe 
               title="Monitoreo Operacional" 
               width="100%" 
               height="300" 
-              src="URL_DE_TU_DASHBOARD_LOOKER_STUDIO" 
+              src="Pendiente" 
               frameborder="0" 
               allowFullScreen="true">
             </iframe>
@@ -308,24 +314,75 @@
             <span class="etiqueta-looker">Looker Studio</span>
           </div>
         </div>
-      </div>
+        -->
+        <!-- Proyecto de Python Clustering -->
+        <div class="dashboard-card">
+          <div class="dashboard-embed python-project">
+            <div class="clustering-carousel">
+              <div class="clustering-track">
+                <img src="https://raw.githubusercontent.com/JuanPaillaguala/Analisis-de-Clustering-en-Python/main/Images/Matriz de Correlación.png" alt="Matriz de Correlación">
+                <img src="https://raw.githubusercontent.com/JuanPaillaguala/Analisis-de-Clustering-en-Python/main/Images/Dendograma.png" alt="Visualización Dendrograma">
+                <img src="https://raw.githubusercontent.com/JuanPaillaguala/Analisis-de-Clustering-en-Python/main/Images/Diagrama de Codo.png" alt="Método del codo">
+                <img src="https://raw.githubusercontent.com/JuanPaillaguala/Analisis-de-Clustering-en-Python/main/Images/Gráfico de siluetas.png" alt="Gráfico de siluetas">
+                <img src="https://raw.githubusercontent.com/JuanPaillaguala/Analisis-de-Clustering-en-Python/main/Images/Gráfico de cluster (GMM) con PCA.png" alt="Cluster GMM con PCA">
+              </div>
+              <button class="clustering-btn prev">&#10094;</button>
+              <button class="clustering-btn next">&#10095;</button>
+            </div>
+            <div class="overlay">
+              <div class="botones-proyecto">
+                <a href="https://juanpaillaguala.github.io/Analisis-de-Clustering-en-Python/" class="btn-ver-demo">Ver demo</a>
+                <a href="https://github.com/JuanPaillaguala/Analisis-de-Clustering-en-Python" class="btn-ver-codigo">Ver código</a>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h3>Análisis de Clustering: K-Means vs GMM</h3>
+            <p>Implementación y comparación de algoritmos de clustering no supervisado, evaluando rendimiento mediante métricas como Davies-Bouldin y silueta.</p>
+            <div class="tecnologias-tags">
+              <span class="etiqueta-python">Python</span>
+              <span class="etiqueta-scikit">scikit-learn</span>
+              <span class="etiqueta-data">Data Science</span>
+            </div>
+          </div>
+        </div>
     </section>
 
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto">
       <h2 class="seccion-titulo">📬 Contáctame</h2>
-      <form action="https://formspree.io/f/xpwpbzwr" method="POST" class="formulario-contacto">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" required>
 
-        <label for="correo">Correo:</label>
-        <input type="email" name="correo" required>
-
-        <label for="mensaje">Mensaje:</label>
-        <textarea name="mensaje" rows="4" required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
+      <!-- Contenido de las tabs -->
+      <div class="tab-content">
+        <!-- Tab 1: Formulario -->
+        <div class="tab-pane active" id="form-tab">
+          <form action="https://formspree.io/f/xpwpbzwr" method="POST" class="formulario-contacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required>
+    
+            <label for="correo">Correo:</label>
+            <input type="email" name="correo" required>
+            
+            <label for="asunto">Asunto:</label>
+            <select name="asunto" id="asunto">
+              <option value="consulta">Consulta general</option>
+              <option value="proyecto">Propuesta de proyecto</option>
+              <option value="trabajo">Oportunidad laboral</option>
+              <option value="otro">Otro</option>
+            </select>
+    
+            <label for="mensaje">Mensaje:</label>
+            <textarea name="mensaje" rows="4" required></textarea>
+    
+            <div class="form-submit">
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">Enviar mensaje</span>
+                <span class="btn-icon">✉️</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- SCRIPT: Timeline automático -->
@@ -541,5 +598,64 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     </script>
+
+
+<script>
+  // Script para el menú sticky
+  window.addEventListener('DOMContentLoaded', function() {
+    const nav = document.getElementById('sticky-nav');
+    
+    // Hacer el menú visible desde el principio
+    nav.style.display = 'block';
+    
+    // Función para manejar el cambio de estilo al hacer scroll
+    function handleScroll() {
+      if (window.scrollY > 300) {
+        nav.classList.add('sticky');
+      } else {
+        nav.classList.remove('sticky');
+      }
+    }
+    
+    // Ejecutar la función al cargar la página
+    handleScroll();
+    
+    // Añadir el evento de scroll
+    window.addEventListener('scroll', handleScroll);
+  });
+
+</script>
+
+<script>
+  const clusteringTrack = document.querySelector('.clustering-track');
+  const clusteringImages = document.querySelectorAll('.clustering-track img');
+  const btnPrev = document.querySelector('.clustering-btn.prev');
+  const btnNext = document.querySelector('.clustering-btn.next');
+  let clusteringIndex = 0;
+
+  function updateClusteringCarousel() {
+    const width = clusteringImages[0].clientWidth;
+    clusteringTrack.style.transform = `translateX(-${clusteringIndex * width}px)`;
+  }
+
+  function nextClusteringSlide() {
+    clusteringIndex = (clusteringIndex + 1) % clusteringImages.length;
+    updateClusteringCarousel();
+  }
+
+  btnNext.addEventListener('click', nextClusteringSlide);
+
+  btnPrev.addEventListener('click', () => {
+    clusteringIndex = (clusteringIndex - 1 + clusteringImages.length) % clusteringImages.length;
+    updateClusteringCarousel();
+  });
+
+  window.addEventListener('resize', updateClusteringCarousel);
+
+  // Pase automático cada 4 segundos
+  setInterval(nextClusteringSlide, 4000);
+</script>
+
+
 </body>
 </html>

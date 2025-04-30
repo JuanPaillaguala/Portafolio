@@ -26,7 +26,7 @@ body {
 /* ----- HEADER Y NAVEGACIÓN ----- */
 header {
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 40px 20px 30px;
   position: relative;
   overflow: hidden;
   background-color: var(--fondo);
@@ -36,7 +36,7 @@ header {
 header:before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 0%;
   right: 0;
   width: 100%;
   height: 100%;
@@ -73,8 +73,8 @@ header:after {
 }
 
 header .perfil {
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   object-position: center top;
   border-radius: 50%;
@@ -128,31 +128,77 @@ header nav ul li a:hover {
   color: var(--principal);
 }
 
-/* Media query para dispositivos móviles */
-@media screen and (max-width: 768px) {
-  header {
-    padding: 30px 20px;
+/* ----- MENÚ STICKY ----- */
+#sticky-nav {
+  width: 100%;
+background: linear-gradient(135deg, rgba(80, 160, 165, 0.95) 0%, rgba(60, 140, 145, 0.95) 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  /* Posicionamiento por defecto */
+  position: absolute;
+  top: 0;
+}
+
+/* Clase que se aplica cuando el menú debe ser "sticky" */
+#sticky-nav.sticky {
+  position: fixed;
+  top: 0;
+  animation: slideDown 0.5s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
   }
-  
-  header:before {
-    background-size: 100% auto;
-    opacity: 0.6; /* Reducir opacidad en móviles para mejor legibilidad */
+  to {
+    transform: translateY(0);
   }
-  
-  header:after {
-    background: linear-gradient(
-      180deg, 
-      var(--fondo) 0%, 
-      rgba(172, 223, 217, 0.9) 30%, 
-      rgba(172, 223, 217, 0.7) 70%, 
-      rgba(172, 223, 217, 0.5) 100%
-    );
-  }
-  
-  header .perfil {
-    width: 180px;
-    height: 180px;
-  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  height: auto;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.nav-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#sticky-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sticky-nav ul li {
+  margin-left: 15px;
+}
+
+#sticky-nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+  padding: 5px 8px;
+}
+
+#sticky-nav ul li a:hover {
+  color: #333;
+}
+
+/* Añadir espacio para el header para compensar el menú absoluto */
+header {
+  padding-top: 40px; /* Ajusta este valor según la altura de tu menú */
 }
 
 /* ----- CONTENIDO PRINCIPAL ----- */
@@ -174,6 +220,42 @@ section {
   margin: 20px auto;
   border-radius: 15px;
   max-width: 1000px;
+}
+
+/* Media queries para responsive */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 0px;
+    height: auto; /* Asegurarse de que la altura sea automática */
+  }
+  
+  .nav-name {
+    display: none; /* Ocultar el nombre en pantallas pequeñas */
+  }
+  
+  #sticky-nav ul {
+    flex-wrap: nowrap; /* Mantener los elementos en una línea */
+    justify-content: center; /* Centrar los elementos de navegación */
+    width: 100%;
+    overflow-x: auto; /* Permitir desplazamiento horizontal si hay muchos elementos */
+    -webkit-overflow-scrolling: touch; /* Mejor experiencia en iOS */
+    scrollbar-width: none; /* Ocultar la barra de desplazamiento en Firefox */
+    padding-bottom: 5px; /* Espacio para posible barra de desplazamiento */
+  }
+  
+  /* Ocultar la barra de desplazamiento en Chrome y Safari */
+  #sticky-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  #sticky-nav ul li {
+    margin: 5px 10px 5px 0; /* Margen a la derecha y sin margen a la izquierda */
+  }
+  
+  #sticky-nav.sticky {
+    max-height: none; /* Asegura que no haya restricción de altura en modo sticky */
+  }
 }
 
 /* ----- TIMELINE ESTUDIOS & EXPERIENCIA (ESCRITORIO) ----- */
@@ -440,99 +522,273 @@ section {
   font-weight: 500;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .portafolio-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .dashboard-embed {
-    padding-top: 75%; /* 4:3 para móviles */
-  }
-}
+/* === Tarjeta de proyecto Clustering en Python === */
 
-
-/* ----- FORMULARIO DE CONTACTO ----- */
-#contacto {
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+.python-project {
+  position: relative;
+  overflow: hidden;
+  padding-top: 0 !important; /* Anula el padding-top heredado */
+  height: 250;
   border-radius: 15px;
-  box-shadow: 0 4px 12px var(--sombra);
-  padding: 40px;
-  margin: 20px auto 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.clustering-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-.formulario-contacto {
+.clustering-track {
   display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
+  transition: transform 0.5s ease;
+  height: 100%;
 }
 
-.formulario-contacto label {
-  margin-top: 15px;
-  font-weight: bold;
+.clustering-track img {
+  width: 100%; /* Ancho completo del contenedor */
+  height: 100%; /* Altura completa del contenedor */
+  object-fit: contain; /* Mantiene proporciones sin recortar */
+  object-position: center; /* Centra la imagen */
+  padding: 15px; /* Espacio interno */
+  background: white; /* Fondo para las imágenes transparentes */
 }
 
-.formulario-contacto input,
-.formulario-contacto textarea {
-  padding: 10px;
-  border: 1px solid var(--borde-tarjeta);
-  border-radius: 8px;
-  font-size: 1em;
-  margin-top: 5px;
-}
-
-.formulario-contacto button {
-  margin-top: 20px;
-  padding: 12px;
-  background-color: var(--principal);
+.clustering-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(48, 105, 152, 0.8); /* Color Python */
   color: white;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 50%;
   cursor: pointer;
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.clustering-btn:hover {
+  background: rgba(48, 105, 152, 1);
+}
+
+.clustering-btn.prev {
+  left: 10px;
+}
+
+.clustering-btn.next {
+  right: 10px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  padding: 15px 10px;
+  z-index: 2;
+}
+
+.botones-proyecto {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-ver-demo,
+.btn-ver-codigo {
+  background-color: #306998; /* Azul Python */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
   transition: background-color 0.3s;
 }
 
-.formulario-contacto button:hover {
-  background-color: #4fa4aa;
+.btn-ver-demo:hover,
+.btn-ver-codigo:hover {
+  background-color: #204d74;
 }
 
-/* ----- RESPONSIVE DESIGN ----- */
+.etiqueta-python {
+  background-color: #306998;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.etiqueta-scikit {
+  background-color: #f7931e;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.etiqueta-data {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ----- FORMULARIO DE CONTACTO ----- */
+.formulario-contacto {
+  max-width: 450px; /* Reducido de 500px */
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px; /* Reducido de 30px */
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto label {
+  color: var(--texto);
+  font-weight: 600;
+  margin-bottom: 5px; /* Reducido de 8px */
+  display: block;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea,
+.formulario-contacto select {
+  width: 100%;
+  padding: 10px 12px; /* Reducido de 12px 15px */
+  margin-bottom: 15px; /* Reducido de 20px */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border 0.3s, box-shadow 0.3s;
+  font-family: var(--fuente);
+  background: white;
+}
+
+.formulario-contacto textarea {
+  height: 80px; /* Añadido control de altura específico para textarea */
+  resize: vertical; /* Permitir redimensionar solo verticalmente */
+  min-height: 60px; /* Altura mínima */
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus,
+.formulario-contacto select:focus {
+  border-color: var(--principal);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(103, 188, 193, 0.2); /* Reducido de 3px */
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px; /* Añadido margen superior reducido */
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px; /* Reducido de 12px 25px */
+  background: var(--principal);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Reducido de 0 3px 8px */
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px); /* Reducido de -3px */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Reducido de 0 5px 15px */
+  background: #4fa4aa;
+}
+
+.btn-text {
+  margin-right: 6px; /* Reducido de 8px */
+  font-size: 0.95rem; /* Tamaño de texto ligeramente reducido */
+}
+
+.btn-icon {
+  font-size: 1.1em; /* Reducido de 1.2em */
+}
+
+/* Ajustes responsivos para dispositivos más pequeños */
 @media screen and (max-width: 768px) {
-  header {
-    background-size: contain;
-    padding: 30px 20px;
+  .formulario-contacto {
+    max-width: 100%;
+    padding: 12px;
+    margin-bottom: 0;
   }
   
-  header .perfil {
-    width: 180px;
-    height: 180px;
+  .formulario-contacto label {
+    margin-bottom: 2px;
+    font-size: 0.85rem;
   }
   
-  header nav ul {
-    flex-direction: column;
+  .formulario-contacto input,
+  .formulario-contacto textarea,
+  .formulario-contacto select {
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
   }
-
-  header nav ul li {
-    margin: 5px 0;
+  
+  .formulario-contacto textarea {
+    height: 60px;
+    min-height: 40px;
   }
-
-  main {
-    padding: 20px;
+  
+  .submit-btn {
+    padding: 6px 14px;
+    font-size: 0.9rem;
   }
-
-  .timeline-estudios,
-  .timeline-laboral {
-    display: none;
+  
+  .btn-text {
+    margin-right: 4px;
+    font-size: 0.9rem;
   }
-
-  section {
-    padding: 20px 10px;
-    margin: 10px auto;
+  
+  .btn-icon {
+    font-size: 1em;
   }
 }
+
+/* Ajustes para pantallas muy pequeñas */
+@media screen and (max-width: 360px) {
+  .formulario-contacto {
+    padding: 10px;
+  }
+  
+  .formulario-contacto label {
+    font-size: 0.8rem;
+    margin-bottom: 1px;
+  }
+  
+  .formulario-contacto input,
+  .formulario-contacto textarea,
+  .formulario-contacto select {
+    padding: 5px 7px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+  }
+  
+  .formulario-contacto textarea {
+    height: 50px;
+  }
+  
+  .form-submit {
+    margin-top: 2px;
+  }
+}
+
 /* ----- CARRUSEL MÓVIL ----- */
 .mobile-carousel {
   display: none;
@@ -560,10 +816,10 @@ section {
 }
 
 .carousel-item img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 /* Botones de navegación del carrusel */
@@ -614,8 +870,8 @@ section {
 }
 
 .carousel-indicators span {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #ddd;
   cursor: pointer;
@@ -633,51 +889,13 @@ section {
     display: none;
   }
 
-  .mobile-carousel {
-    display: block;
+  body {
+    padding: 0; /* Eliminar padding innecesario */
   }
   
-  /* Ajuste específico para contenedores de carrusel */
-  .estudios-carousel,
-  .experiencia-carousel {
-    display: flex;
-    width: 100%;
-  }
-}
-/* Estilos para el botón de descarga de CV */
-.cv-download-container {
-  margin: 15px 0;
-  text-align: center;
-}
-
-.cv-download-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.cv-download-button:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.download-icon {
-  margin-right: 8px;
-  font-size: 1.2em;
-}
-
-/* Adaptación para dispositivos móviles */
-@media (max-width: 768px) {
-  .cv-download-button {
-    padding: 6px 12px;
-    font-size: 0.9em;
+  .mobile-carousel {
+    display: block;
+    width: auto; /* Usar el ancho completo de la ventana */
+    margin: 0 auto; /* Centrar el carrusel */
   }
 }
