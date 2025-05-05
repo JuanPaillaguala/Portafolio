@@ -456,6 +456,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  justify-content: center; /* Centrar las tarjetas en el grid */
 }
 
 .dashboard-card {
