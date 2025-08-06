@@ -24,6 +24,7 @@ Seguimiento de Eventos: Implementación de Google Analytics para métricas de us
 /
 ├── index.html              # Página principal
 ├── style.css               # Estilos CSS
+├── script.js               # Elementos JavaScript
 ├── Foto.jpg                # Foto de perfil
 ├── Diseño.png              # Imagen de fondo para el header
 ├── favicon.png             # Icono del sitio
@@ -37,6 +38,7 @@ Estudios: Línea de tiempo de formación académica
 Experiencia: Historial laboral en formato cronológico
 Portafolio: Dashboards interactivos de Power BI y Looker Studio
 Contacto: Formulario para comunicación directa
+Footer: Propietario, enlaces de RRSS
 
 📧 Contacto
 Para cualquier consulta o sugerencia relacionada con este proyecto:
