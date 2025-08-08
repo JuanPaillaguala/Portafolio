@@ -66,10 +66,13 @@
     <!-- SECCIÓN SOBRE MI -->
     <section id="sobre-mi">
       <h2 class="seccion-titulo">👋 Sobre mí</h2>
-      <p>Soy un Ingeniero en Información y Control de Gestión de la Universidad Austral de Chile graduado con distintición máxima en el año 2020. Apasionado por el análisis de datos y la optimización de procesos. He desarrollado habilidades en análisis estadístico, visualización de datos y programación en Python.</p>
-      <p>Mi experiencia incluye roles como analista de control de gestión y analista de datos, donde he trabajado en la automatización de informes, la construcción de dashboards y el análisis de grandes volúmenes de datos.</p>
-      <p>Estoy siempre en busca de nuevos desafíos y oportunidades para aplicar mis habilidades en proyectos
-      <p>que generen un impacto positivo. Me apasiona aprender y adaptarme a nuevas tecnologías y metodologías en el campo del análisis de datos.</p>
+        <div class="sobre-mi-container">
+        <p>Soy <strong>Ingeniero en Información y Control de Gestión</strong> egresado de la <strong>Universidad Austral de Chile</strong>, titulado con <em>distinción máxima</em> en 2020. Apasionado por transformar datos en conocimiento útil para la toma de decisiones, combino el análisis estadístico, la visualización y la programación en <strong>Python</strong> para generar soluciones efectivas.</p>
+        
+        <p>He trabajado como <strong>Analista de Control de Gestión</strong> y <strong>Analista de Datos</strong>, liderando la <strong>automatización de reportes</strong>, el diseño de <strong>dashboards interactivos</strong> y el análisis de grandes volúmenes de información en sectores como energía, agroindustria y acuícola.</p>
+        
+        <p>Me motiva asumir desafíos que generen un impacto positivo en las organizaciones, aprendiendo y adaptándome continuamente a nuevas tecnologías y metodologías de <strong>ciencia de datos</strong>.</p>
+        </div>
     </section>
    
     <!-- SECCIÓN ESTUDIOS -->
@@ -161,6 +164,7 @@
             <p><strong>Práctica Temprana</strong></p>
             <p>Torres Garay</p>
             <button class="btn-funciones" data-job="torres-garay">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="torres-garay" style="display: none;">
@@ -181,6 +185,7 @@
             <p><strong>Analista de Control de gestión</strong></p>
             <p>Manuka</p>
             <button class="btn-funciones" data-job="manuka">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="manuka" style="display: none;">
@@ -199,6 +204,7 @@
             <p><strong>Práctica Profesional</strong></p>
             <p>Grupo SAESA</p>
             <button class="btn-funciones" data-job="saesa">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="saesa" style="display: none;">
@@ -216,6 +222,7 @@
             <p><strong>Analista de Datos</strong></p>
             <p>ADL Diagnostic Chile</p>
             <button class="btn-funciones" data-job="adl">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="adl" style="display: none;">
@@ -238,7 +245,7 @@
             <p><strong>Práctica Temprana</strong></p>
             <p>Torres Garay</p>
             <button class="btn-funciones mobile" data-job="torres-garay-mobile">
-              <span class="btn-text">Ver funciones</span>
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="torres-garay-mobile" style="display: none;">
@@ -257,6 +264,7 @@
             <p><strong>Práctica Profesional</strong></p>
             <p>Grupo SAESA</p>
             <button class="btn-funciones mobile" data-job="saesa-mobile">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="saesa-mobile" style="display: none;">
@@ -273,6 +281,7 @@
             <p><strong>Analista de Control de Gestión</strong></p>
             <p>Manuka</p>
             <button class="btn-funciones mobile" data-job="manuka-mobile">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="manuka-mobile" style="display: none;">
@@ -290,6 +299,7 @@
             <p><strong>Analista de Datos</strong></p>
             <p>ADL Diagnostic Chile</p>
             <button class="btn-funciones mobile" data-job="adl-mobile">
+              <span class="btn-text">Funciones</span>
               <span class="btn-icon">📋</span>
             </button>
             <div class="funciones-detalle" id="adl-mobile" style="display: none;">
@@ -306,9 +316,10 @@
 
     <!-- SECCIÓN PORTAFOLIO -->
     <section id="portafolio">
-      <h2 class="seccion-titulo">🧰 Portafolio</h2>
-      <p>Explora mis proyectos en <strong>Power BI</strong>, <strong>Looker Studio</strong>, <strong>Python</strong>, <strong>R</strong> y <strong>ArcGIS</strong> relacionados con análisis de datos, visualización y ciencia de datos.</p>
-      
+        <div Class = "portafolio-container">
+          <h2 class="seccion-titulo">🧰 Portafolio</h2>
+          <p>Explora mis proyectos en <strong>Power BI</strong>, <strong>Looker Studio</strong>, <strong>Python</strong>, <strong>R</strong> y <strong>ArcGIS</strong> relacionados con análisis de datos, visualización y ciencia de datos.</p>
+        </div>
       <div class="portafolio-grid">
         <!-- Proyectos de PowerBI -->
         <!-- EERR -->
@@ -327,6 +338,11 @@
             <h3>EERR</h3>
             <p>Proyecto sobre el análisis cuentas contables, incluido comparación versus presupuesto.</p>
             <span class="etiqueta-powerbi">Power BI</span>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiYzdkYzhkY2UtZTYyOS00M2M0LThjNTUtZDU5MWY3MzQ5NDg2IiwidCI6IjI2MmU2ZGRhLWFjZjUtNDg1NC05NjYwLTg4MDMyNTllNmRlMCJ9" 
+              target="_blank" 
+              class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
         
@@ -346,6 +362,9 @@
             <h3>Crianza terneros</h3>
             <p>Proyecto sobre el análisis de alimentación, crecimiento y mortalidades durante crianza de terneros.</p>
             <span class="etiqueta-powerbi">Power BI</span>
+            <a href="Pendiente" target="_blank" class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
         -->
@@ -365,6 +384,11 @@
             <h3>Concesiones acuicolas</h3>
             <p>Proyecto sobre el análisis de las concesiones acuícolas con datos de SERNAPESCA.</p>
             <span class="etiqueta-powerbi">Power BI</span>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiNjQxZmU4NTAtOTFhNy00NzA0LWI0MzEtMzc4YTkxNmRmNzNiIiwidCI6IjI2MmU2ZGRhLWFjZjUtNDg1NC05NjYwLTg4MDMyNTllNmRlMCJ9" 
+              target="_blank" 
+              class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
 
@@ -385,6 +409,11 @@
             <h3>Estadísticas Google Analytics Portafolio</h3>
             <p>Proyecto sobre el análisis de las visitas a página de portafolio con Google Analytics.</p>
             <span class="etiqueta-looker">Looker Studio</span>
+            <a href="https://lookerstudio.google.com/reporting/ffac8f52-3cf2-4b16-8836-cf962ce97e12/page/TZqHF" 
+              target="_blank" 
+              class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
 
@@ -404,6 +433,11 @@
             <h3>Calidad Materia Prima</h3>
             <p>Proyecto sobre el análisis de materia prima (acuicola) por centro incluyendo monitoreo de defectos.</p>
             <span class="etiqueta-looker">Looker Studio</span>
+            <a href="https://lookerstudio.google.com/embed/reporting/09d3ed43-6a4b-49d7-b4e1-4c30fa16c913/page/p_s04st910id" 
+              target="_blank" 
+              class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
         <!-- Monitoreo Operacional
@@ -422,6 +456,9 @@
             <h3>Monitoreo Operacional</h3>
             <p>Pendiente.</p>
             <span class="etiqueta-looker">Looker Studio</span>
+            <a href="Pendiente" target="_blank" class="btn-ver-proyecto">
+              Ver proyecto
+            </a>
           </div>
         </div>
         -->

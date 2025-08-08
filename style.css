@@ -163,6 +163,22 @@ header nav ul li a:hover {
 #sobre-mi {
   text-align: center;
   margin-bottom: 15px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-radius: 0; /* Quita bordes redondeados para que llegue hasta los lados */
+  max-width: none; /* Anula el límite global */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sobre-mi-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 /* ----- Footer ----- */
@@ -174,6 +190,10 @@ footer {
   font-size: 1rem;
   border-top: 1px solid #e0e0e0;
   box-shadow: 0 -2px 12px rgba(0,0,0,0.07);
+  width: 100vw;
+  margin-left: -50vw;
+  margin-bottom: -50vw;
+  left: 50%;
   position: relative;
 }
 
@@ -783,6 +803,19 @@ section#contacto {
 }
 
 /* ----- PORTAFOLIO ----- */
+.portafolio-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-radius: 0;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #portafolio p {
   text-align: center;
   margin-bottom: 15px;
@@ -947,7 +980,7 @@ section#contacto {
 
 .btn-ver-demo,
 .btn-ver-codigo {
-  background-color: #306998; /* Azul Python */
+  background-color: #306998;
   color: white;
   padding: 6px 12px;
   border-radius: 20px;
@@ -986,6 +1019,20 @@ section#contacto {
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
+}
+
+.btn-ver-proyecto {
+  background-color: #306998;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-ver-proyecto:hover {
+  background-color: #005fa3;
 }
 
 /* ----- FORMULARIO DE CONTACTO ----- */
