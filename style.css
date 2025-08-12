@@ -21,6 +21,7 @@ body {
   color: var(--texto);
   line-height: 1.6;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* ----- HEADER Y NAVEGACIÓN ----- */
@@ -461,10 +462,11 @@ section#contacto {
 .timeline-estudios,
 .timeline-laboral {
   position: relative;
-  margin: 60px 0;
+  margin: 80px 0;
   height: 350px;
   padding: 60px 40px 120px 40px;
   overflow: visible;
+  z-index: 100;
 }
 
 .linea-estudios,
@@ -502,6 +504,7 @@ section#contacto {
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 5;
+  overflow: visible; 
 }
 
 .tarjeta:hover {
@@ -531,7 +534,7 @@ section#contacto {
 }
 
 .tarjeta-top {
-  top: -220px;
+  top: -240px;
   animation-name: fadeInDown;
 }
 
@@ -800,6 +803,94 @@ section#contacto {
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* Líneas entrecortadas conectoras para el timeline */
+
+/* ----- LÍNEAS CONECTORAS ESPECÍFICAS PARA TIMELINE ----- */
+/* ----- LÍNEAS CONECTORAS ESPECÍFICAS PARA TIMELINE (CORREGIDO) ----- */
+
+/* Primero, establecemos un orden de apilamiento (z-index) coherente para todos los elementos del timeline.
+  Esto asegura que cada parte se muestre en la capa correcta.
+  1. La línea principal horizontal (la más profunda).
+  2. Las líneas conectoras punteadas.
+  3. Los puntos circulares del timeline.
+  4. Las tarjetas de información (encima de todo).
+*/
+
+.linea-estudios,
+.linea-laboral {
+  z-index: 1; /* Capa 1 */
+}
+
+.punto-conector,
+.punto-laboral {
+  z-index: 3; /* Capa 3 */
+}
+
+.tarjeta {
+  z-index: 4; /* Capa 4 (la más alta) */
+}
+
+/* 2. Reglas para las líneas conectoras (el pseudo-elemento ::before de cada tarjeta) */
+.timeline-estudios .tarjeta::before,
+.timeline-laboral .tarjeta::before {
+  content: '';
+  position: absolute;
+  left: 52.75%;
+  border-left: 3.5px dashed; /* Mantenemos tu estilo de línea punteada */
+
+  /* Z-INDEX CORREGIDO: La línea debe estar entre la línea principal y el punto. */
+  z-index: 2; /* Capa 2 */
+
+  /* ANIMACIÓN CORREGIDA: Usamos una animación de escalado que es más fiable. */
+  opacity: 0;
+  transform: translateX(-50%) scaleY(0); /* Empieza invisible y con altura 0 */
+  animation: drawConnector 0.5s ease-out forwards;
+  animation-delay: 0.6s; /* Un retraso para que aparezca después de la tarjeta */
+}
+
+/* 3. Definimos el origen de la animación para que "crezcan" en la dirección correcta */
+.timeline-estudios .tarjeta-top::before,
+.timeline-laboral .tarjeta-top::before {
+  /* La animación de las tarjetas de arriba debe crecer de arriba hacia abajo */
+  transform-origin: top;
+}
+
+.timeline-estudios .tarjeta-bottom::before,
+.timeline-laboral .tarjeta-bottom::before {
+  /* La animación de las tarjetas de abajo debe crecer de abajo hacia arriba */
+  transform-origin: bottom;
+}
+
+/* 4. Mantenemos tus tamaños y posiciones específicas, ya que son correctos para conectar con los puntos */
+.tarjeta-bottom::before {
+    top: -50px;
+    height: 50px;
+}
+.timeline-estudios .tarjeta-top::before {
+    height: 62.5px;
+    bottom: -65px;
+}
+.timeline-laboral .tarjeta-top::before {
+    height: 25px;
+    bottom: -25px;
+}
+
+/* 5. Mantenemos los colores específicos que definiste */
+.timeline-estudios .tarjeta::before {
+  border-left-color: #F0E68C;
+}
+.timeline-laboral .tarjeta::before {
+  border-left-color: #FF9AA2;
+}
+
+/* 6. Nueva animación más simple y efectiva que reemplaza la antigua 'drawLine' */
+@keyframes drawConnector {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1); /* Termina visible y con su altura completa */
+  }
 }
 
 /* ----- PORTAFOLIO ----- */
