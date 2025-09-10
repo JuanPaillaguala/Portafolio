@@ -233,43 +233,50 @@ function initMobileCarousels() {
 }
 
 // =====================================
-// 3. CARRUSEL DE CLUSTERING
+// 3. CARRUSEL DE PYTHON
 // =====================================
-function initClusteringCarousel() {
-  const clusteringTrack = document.querySelector('.clustering-track');
-  const clusteringImages = document.querySelectorAll('.clustering-track img');
-  const btnPrev = document.querySelector('.clustering-btn.prev');
-  const btnNext = document.querySelector('.clustering-btn.next');
+function initPythonCarousels() {
+  const carousels = document.querySelectorAll('.python-carousel');  // Selecciona TODOS los carruseles (cambia a .clustering-carousel si no cambias clases)
   
-  // Verificar que existan los elementos
-  if (!clusteringTrack || !clusteringImages.length || !btnPrev || !btnNext) return;
-  
-  let clusteringIndex = 0;
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('.python-track');  // Cambia a .clustering-track si es necesario
+    const images = carousel.querySelectorAll('.python-track img');  // Cambia a .clustering-track img
+    const btnPrev = carousel.querySelector('.python-btn.prev');  // Cambia a .clustering-btn.prev
+    const btnNext = carousel.querySelector('.python-btn.next');  // Cambia a .clustering-btn.next
+    
+    // Verificar que existan los elementos en este carrusel
+    if (!track || images.length === 0 || !btnPrev || !btnNext) return;
+    
+    let index = 0;
 
-  function updateClusteringCarousel() {
-    const width = clusteringImages[0].clientWidth;
-    clusteringTrack.style.transform = `translateX(-${clusteringIndex * width}px)`;
-  }
+    function updateCarousel() {
+      const width = images[0].clientWidth;
+      track.style.transform = `translateX(-${index * width}px)`;
+    }
 
-  function nextClusteringSlide() {
-    clusteringIndex = (clusteringIndex + 1) % clusteringImages.length;
-    updateClusteringCarousel();
-  }
+    function nextSlide() {
+      index = (index + 1) % images.length;
+      updateCarousel();
+    }
 
-  function prevClusteringSlide() {
-    clusteringIndex = (clusteringIndex - 1 + clusteringImages.length) % clusteringImages.length;
-    updateClusteringCarousel();
-  }
+    function prevSlide() {
+      index = (index - 1 + images.length) % images.length;
+      updateCarousel();
+    }
 
-  // Event listeners para los botones
-  btnNext.addEventListener('click', nextClusteringSlide);
-  btnPrev.addEventListener('click', prevClusteringSlide);
+    // Event listeners para los botones
+    btnNext.addEventListener('click', nextSlide);
+    btnPrev.addEventListener('click', prevSlide);
 
-  // Actualizar en resize
-  window.addEventListener('resize', updateClusteringCarousel);
+    // Actualizar en resize (para este carrusel específico)
+    window.addEventListener('resize', updateCarousel);
 
-  // Pase automático cada 4 segundos
-  setInterval(nextClusteringSlide, 4000);
+    // Pase automático cada 4 segundos
+    setInterval(nextSlide, 4000);
+
+    // Inicializar
+    updateCarousel();
+  });
 }
 
 // =====================================
@@ -353,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Inicializar todos los módulos
   initTimelines();
   initMobileCarousels();
-  initClusteringCarousel();
+  initPythonCarousels();
   initStickyNav();
   initMobileMenu();
   initEventTracking();
