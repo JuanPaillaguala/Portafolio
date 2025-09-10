@@ -995,31 +995,31 @@ section#contacto {
   font-weight: 500;
 }
 
-/* === Tarjeta de proyecto Clustering en Python === */
+/* === Tarjeta de proyecto en Python === */
 
 .python-project {
   position: relative;
   overflow: hidden;
   padding-top: 0 !important; /* Anula el padding-top heredado */
-  height: 250;
+  height: 250px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.clustering-carousel {
+.python-carousel {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.clustering-track {
+.python-track {
   display: flex;
   transition: transform 0.5s ease;
   height: 100%;
 }
 
-.clustering-track img {
+.python-track img {
   width: 100%; /* Ancho completo del contenedor */
   height: 100%; /* Altura completa del contenedor */
   object-fit: contain; /* Mantiene proporciones sin recortar */
@@ -1028,7 +1028,7 @@ section#contacto {
   background: white; /* Fondo para las imágenes transparentes */
 }
 
-.clustering-btn {
+.python-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1042,15 +1042,15 @@ section#contacto {
   transition: background 0.3s;
 }
 
-.clustering-btn:hover {
+.python-btn:hover {
   background: rgba(48, 105, 152, 1);
 }
 
-.clustering-btn.prev {
+.python-btn.prev {
   left: 10px;
 }
 
-.clustering-btn.next {
+.python-btn.next {
   right: 10px;
 }
 
